@@ -44,7 +44,7 @@ export default function BatteriesPage() {
                 pointerEvents: "none",
               }}
             >
-              ▼
+         
             </span>
           </div>
         </div>
@@ -137,22 +137,19 @@ export default function BatteriesPage() {
         <div className="row g-4 mt-3">
           {/* Previous Cycle */}
           <div className="col-md-6" style={{ minHeight: "150px" }}>
-            <div className="border rounded p-3 h-100">
-              <div className="fw-bold mb-2">Previous Cycle</div>
-
-              <div className="d-flex gap-4">
-                <div>
-                  <div className="fw-bold small">Charge Start Time</div>
-                  <div className="small">2025-03-26, 12:44 - 15:29</div>
-                </div>
-
-                <div>
-                  <div className="fw-bold small">Discharge Start Time</div>
-                  <div className="small">2025-06-25, 15:36 - 15:42</div>
-                </div>
-              </div>
+            <div className=" rounded p-3 h-110 d-flex justify-content-center align-items-center">
+              <img
+                src="/images/previouscycle.png"
+                alt="Previous Cycle"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                }}
+              />
             </div>
           </div>
+
 
           {/* UPS */}
           <div className="col-md-6 d-flex gap-3">

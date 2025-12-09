@@ -5,6 +5,7 @@ import FacilityUsage from "./FacilityUsage";
 import ChillersCard from "./ChillersCard";
 import StoredWaterCards from "./StoredWaterCards";
 import BatteryCard from "./BatteryCard";
+import EvChargersPage from "./EvChargersPage";
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
       <ChillersCard/>
       <StoredWaterCards/>
       <BatteryCard/>
+      <EvChargersPage/>
     </div>
   );
 };

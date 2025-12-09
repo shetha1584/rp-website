@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SecondDashboardCard = () => {
+  const [monthDate, setMonthDate] = useState("2025-01-01");
+  const [dailyDate, setDailyDate] = useState("2025-11-30");
+
   const energyData = [
     { name: "Grid", value: 18403, color: "#6b5b5a", percentage: 76.9 },
     { name: "Rooftop Solar", value: 794, color: "#9c8b8a", percentage: 3.3 },
@@ -24,10 +27,10 @@ const SecondDashboardCard = () => {
         width: "100%",
       }}
     >
-      {/* LEFT SECTION — UPDATED */}
+      {/* LEFT SECTION */}
       <div style={{ flex: 1.8 }}>
-
-        {/* Title + Date */}
+        
+        {/* Title + DATE PICKER FIXED */}
         <div
           style={{
             display: "flex",
@@ -40,16 +43,17 @@ const SecondDashboardCard = () => {
             Monthly Energy Profile ⓘ
           </div>
 
-          <select
+          <input
+            type="month"
+            value={monthDate.slice(0, 7)}
+            onChange={(e) => setMonthDate(e.target.value + "-01")}
             style={{
               padding: "6px 12px",
               borderRadius: "6px",
               border: "1px solid #ddd",
               fontSize: "13px",
             }}
-          >
-            <option>01/2025</option>
-          </select>
+          />
         </div>
 
         {/* Big % */}
@@ -89,6 +93,7 @@ const SecondDashboardCard = () => {
               borderRadius: "6px",
             }}
           />
+
           <div
             style={{
               position: "absolute",
@@ -97,7 +102,7 @@ const SecondDashboardCard = () => {
               fontSize: "12px",
               fontWeight: "600",
               color: "#444",
-              marginTop:"16px",
+              marginTop: "16px",
             }}
           >
             87%
@@ -118,62 +123,60 @@ const SecondDashboardCard = () => {
           <span>218899 kWh</span>
         </div>
 
-             
-      {/* Sources of Renewables */}
-      <div
-        style={{
-          marginTop: "30px",
-          padding: "20px",
-          border: "1px solid #f0f0f0",
-          borderRadius: "10px",
-        }}
-      >
-        <div style={{ fontSize: "14px", fontWeight: "600", marginBottom: "15px", color: "#333" }}>
-          Sources of Renewables
-        </div>
-
-        {/* Labels above */}
+        {/* SOURCES OF RENEWABLES */}
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: "11px",
-            marginBottom: "0px",
-            padding: "0 5px",
+            marginTop: "30px",
+            padding: "20px",
+            border: "1px solid #f0f0f0",
+            borderRadius: "10px",
           }}
         >
-          <div style={{ width: "10%", textAlign: "left" }}>Solar<br />Without<br />Trackers</div>
-          <div style={{ width: "12%", textAlign: "left" }}>Solar<br />With<br />Trackers</div>
-          <div style={{ width: "73%", textAlign: "center" }}>Wind</div>
-          <div style={{ width: "5%", textAlign: "right" }}>Rooftop</div>
-        </div>
+          <div style={{ fontSize: "14px", fontWeight: "600", marginBottom: "15px", color: "#333" }}>
+            Sources of Renewables
+          </div>
 
-        {/* Stacked Bar */}
-        <div style={{ width: "100%", height: "24px", display: "flex", borderRadius: "6px", overflow: "hidden" }}>
-          <div style={{ width: "10%", background: "#e88c5d" }} />
-          <div style={{ width: "12%", background: "#ea6a3a" }} />
-          <div style={{ width: "73%", background: "#4a5d7c" }} />
-          <div style={{ width: "5%", background: "#9c8b8a" }} />
-        </div>
+          {/* Labels */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: "11px",
+              marginBottom: "0px",
+              padding: "0 5px",
+            }}
+          >
+            <div style={{ width: "10%", textAlign: "left" }}>Solar<br />Without<br />Trackers</div>
+            <div style={{ width: "12%", textAlign: "left" }}>Solar<br />With<br />Trackers</div>
+            <div style={{ width: "73%", textAlign: "center" }}>Wind</div>
+            <div style={{ width: "5%", textAlign: "right" }}>Rooftop</div>
+          </div>
 
-        {/* Percent labels below */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: "12px",
-            marginTop: "6px",
-            padding: "0 5px",
-          }}
-        >
-          <div style={{ width: "10%", textAlign: "left" }}>10%</div>
-          <div style={{ width: "12%", textAlign: "left" }}>12%</div>
-          <div style={{ width: "73%", textAlign: "center" }}>73%</div>
-          <div style={{ width: "5%", textAlign: "right" }}>5%</div>
+          {/* Bar */}
+          <div style={{ width: "100%", height: "24px", display: "flex", borderRadius: "6px", overflow: "hidden" }}>
+            <div style={{ width: "10%", background: "#e88c5d" }} />
+            <div style={{ width: "12%", background: "#ea6a3a" }} />
+            <div style={{ width: "73%", background: "#4a5d7c" }} />
+            <div style={{ width: "5%", background: "#9c8b8a" }} />
+          </div>
+
+          {/* Percent labels */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: "12px",
+              marginTop: "6px",
+              padding: "0 5px",
+            }}
+          >
+            <div style={{ width: "10%", textAlign: "left" }}>10%</div>
+            <div style={{ width: "12%", textAlign: "left" }}>12%</div>
+            <div style={{ width: "73%", textAlign: "center" }}>73%</div>
+            <div style={{ width: "5%", textAlign: "right" }}>5%</div>
+          </div>
         </div>
       </div>
-    </div>
-
 
       {/* MIDDLE SECTION */}
       <div
@@ -185,20 +188,18 @@ const SecondDashboardCard = () => {
           flex: 1.2,
         }}
       >
-        {/* Title */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             marginBottom: "15px",
-            width: "100%", 
+            width: "100%",
           }}
         >
           <div style={{ fontSize: "16px", fontWeight: "600", color: "#111" }}>
             Daily Consumption
           </div>
-          
         </div>
 
         {/* Donut Chart */}
@@ -259,7 +260,6 @@ const SecondDashboardCard = () => {
 
         {/* Legend */}
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          
           {energyData.map((item) => (
             <div
               key={item.name}
@@ -280,22 +280,23 @@ const SecondDashboardCard = () => {
       </div>
 
       {/* RIGHT SECTION */}
-      
       <div style={{ flex: 0.9 }}>
-        <select
-            style={{
-              padding: "4px 8px",
-              borderRadius: "4px",
-              border: "1px solid #ddd",
-              fontSize: "13px",
-              marginLeft:"120px",
-    
-            }}
-          >
-            <option>11/30/2025</option>
-          </select>
-        <div style={{ height: "36px" }} />
         
+        {/* DAILY DATE PICKER FIXED */}
+        <input
+          type="date"
+          value={dailyDate}
+          onChange={(e) => setDailyDate(e.target.value)}
+          style={{
+            padding: "4px 8px",
+            borderRadius: "4px",
+            border: "1px solid #ddd",
+            fontSize: "13px",
+            marginLeft: "120px",
+          }}
+        />
+
+        <div style={{ height: "36px" }} />
 
         {/* 2 column values */}
         <div
@@ -331,7 +332,6 @@ const SecondDashboardCard = () => {
 
         {/* Renewable Share */}
         <div style={{ marginTop: "25px" }}>
-          
           <div style={{ fontSize: "13px", color: "#666" }}>Today's Renewable Share</div>
           <div
             style={{ fontSize: "24px", fontWeight: "700", color: "#27c845", marginTop: "4px" }}
