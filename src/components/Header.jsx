@@ -5,7 +5,19 @@ function Header() {
   return (
     <div
       className="container-fluid d-flex align-items-center justify-content-between px-2"
-      style={{ paddingTop: 0, paddingBottom: 0 }}
+      style={{
+        position: "fixed",     // 👈 THIS LINE
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "95px",        // matches logo height
+        paddingTop: 0,
+        paddingBottom: 0,
+        background: "#fff",    // important so content doesn’t show through
+        zIndex: 3000,          // higher than navbar
+      }}
+
+
     >
       {/* Left Logo */}
       <img

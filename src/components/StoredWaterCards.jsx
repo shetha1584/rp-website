@@ -41,10 +41,10 @@ const StoredWaterCards = () => {
           <div
             style={{
               padding: "12px",
-              backgroundColor: "#f7f7f7",
+              backgroundColor: "#ffffffff",
             }}
           >
-            <div style={{ fontSize: "18px", fontWeight: "600", marginBottom: "4px" }}>
+            <div style={{ fontSize: "18px", fontWeight: "600", marginBottom: "4px"  }}>
               Stored Water Temperature
             </div>
             <div style={{ fontSize: "20px", fontWeight: "700" }}>{card.temperature}</div>
